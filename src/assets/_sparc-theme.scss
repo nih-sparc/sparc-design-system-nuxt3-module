@@ -1,0 +1,14 @@
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #8300BF
+    ),
+  )
+);
+@use "element-plus/theme-chalk/src/index.scss" as *;
+
+/* custom-theme.css */
+/* Example: Change the primary color */
+:root {
+  --el-color-primary: #8300BF !important;
+}

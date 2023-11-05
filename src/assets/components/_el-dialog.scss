@@ -1,0 +1,14 @@
+@import '../_variables.scss';
+.el-dialog__header {
+  padding-top: 1.25rem !important;
+  padding-bottom: 0 !important;
+}
+.el-dialog__body {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.el-dialog__headerbtn {
+  top: 0 !important;
+  width: 2rem !important;
+  height: 2.5rem !important;
+}

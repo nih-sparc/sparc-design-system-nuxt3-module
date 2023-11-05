@@ -1,8 +1,8 @@
 {
-  "name": "sparc-design-system",
+  "name": "sparc-design-system-nuxt3-module",
   "version": "1.0.0",
   "description": "The design system used by SPARC",
-  "repository": "nih-sparc/sparc-design-system",
+  "repository": "nih-sparc/sparc-design-system-nuxt3-module",
   "license": "MIT",
   "type": "module",
   "exports": {

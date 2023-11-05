@@ -5,8 +5,8 @@ export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'sparc-design-system',
-    configKey: 'sparcDesignSystem'
+    name: 'sparc-design-system-nuxt3-module',
+    configKey: 'sparcDesignSystemNuxt3Module'
   },
   // Default configuration options of the Nuxt module
   defaults: {},
@@ -21,5 +21,13 @@ export default defineNuxtModule<ModuleOptions>({
       global: true,
       mode: 'client'
     })
+    addComponent({
+      name: 'SparcTooltip',
+      filePath: resolver.resolve('./components/SparcTooltip.vue'),
+      global: true,
+      mode: 'client'
+    })
+
+    nuxt.options.css.push(resolver.resolve('assets/styles.scss'));
   }
 })

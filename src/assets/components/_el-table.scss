@@ -1,0 +1,74 @@
+@import '../_variables.scss';
+
+.el-table {
+  color: $grey;
+  font-size: 1rem !important;
+  &__fixed-body-wrapper {
+    td:first-child .cell {
+      padding-right: 2.5rem;
+    }
+  }
+  td {
+    background: #fff;
+    padding: 1.5rem 0 2rem;
+    vertical-align: top;
+  }
+  .el-table__cell {
+    vertical-align: top !important;
+  }
+  .cell {
+    word-break: normal !important;
+  }
+  a {
+    text-decoration: none;
+    color: $purple;
+  }
+}
+
+.table-wrap {
+  border: 1px solid rgb(219, 223, 230);
+  padding: 0 1.5rem;
+}
+
+// DEFAULT HTML TABLE
+
+/*
+ * Style all tables the same as .el-table, but
+ * make sure that `table` children inside of an
+ * .el-table don't also get these styles applied
+ */
+table:not([class^="el-table__"]) {
+  @extend .el-table;
+  border: 1px solid #dbdfe6;
+  border-spacing: 0;
+  padding: 0 1.5rem;
+  th,
+  td {
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #dbdfe6;
+    padding: 0.75rem 1rem;
+    transition: background-color 0.25s ease;
+  }
+  tr:last-child td {
+    border: none;
+  }
+  tr:hover td {
+    background-color: #f3e6f9;
+  }
+}
+
+thead {
+  th {
+    color: $grey;
+    font-weight: 500;
+  }
+}
+td {
+  vertical-align: top;
+}
+
+.markdown-table-wrap {
+  overflow: scroll;
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+@import '../_variables.scss';
+
+.el-popper.is-customized {
+  background: $tooltipColor !important;
+  border: 1px solid $purple !important;
+  border-radius: 4px;
+  color: #303133 !important;
+  font-size: 12px;
+  line-height: 18px;
+  a:not(.underline){
+    text-decoration: underline;
+    color: #303133;
+  }
+}
+.el-popper.is-customized .el-popper__arrow::before {
+  border: 1px solid $purple !important;
+  background-color: $tooltipColor !important;
+}

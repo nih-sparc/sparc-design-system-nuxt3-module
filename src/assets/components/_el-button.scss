@@ -1,0 +1,73 @@
+@import '../_variables.scss';
+
+.el-button {
+  background: $app-primary-color !important;
+  border: 1px solid $app-primary-color !important;
+  box-sizing: border-box !important;
+  color: #fff !important;
+  font-size: 0.875rem !important;
+  font-family: $font-family !important;
+  font-weight: 500 !important;
+  padding: 0.625rem 1.1875rem !important;
+  &:hover,
+  &:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    background: $app-primary-color !important;
+    border: 1px solid $app-primary-color !important;
+    box-shadow: -3px 2px 4px 0px rgba(0, 0, 0, 0.25) !important;
+    color: #fff !important;
+  }
+  &[disabled],
+  &[disabled]:hover {
+    box-shadow: none !important;
+    opacity: 0.6 !important;
+  }
+  &.uppercase {
+    text-transform: uppercase !important;
+  }
+
+  &.large {
+    padding: 0.75rem 1.1875rem !important;
+  }
+
+  &.small,
+  &.extra-small {
+    border-radius: 3px !important;
+    font-size: 0.75rem !important;
+    padding: 0.5625rem 0.875rem !important;
+  }
+
+  &.extra-small {
+    padding: 0.3125rem 0.875rem !important;
+  }
+
+  &.secondary,
+  &.secondary[disabled],
+  &.secondary[disabled]:hover,
+  &.secondary[disabled]:focus {
+    background: #f9f2fc !important;
+    border: 1px solid $app-primary-color !important;
+    color: $app-primary-color !important;
+    &.alt {
+      background: #fff !important;
+      border-color: $mediumGrey !important;
+      color: $mediumGrey !important;
+    }
+  }
+
+  &.danger,
+  &.danger[disabled],
+  &.danger[disabled]:hover,
+  &.danger[disabled]:focus {
+    background: $danger !important;
+    border-color: $danger !important;
+    color: #fff !important;
+  }
+
+  &.is-circle {
+    padding: 0rem !important;
+    border: none !important;
+  }
+}
