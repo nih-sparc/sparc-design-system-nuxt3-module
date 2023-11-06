@@ -1,6 +1,6 @@
 {
   "name": "sparc-design-system-nuxt3-module",
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "description": "The design system used by SPARC",
   "repository": "nih-sparc/sparc-design-system-nuxt3-module",
   "license": "MIT",
@@ -33,7 +33,8 @@
   "dependencies": {
     "@element-plus/nuxt": "^1.0.6",
     "@nuxt/kit": "^3.8.0",
-    "element-plus": "^2.4.2"
+    "element-plus": "^2.4.2",
+    "ramda": "^0.29.1"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
