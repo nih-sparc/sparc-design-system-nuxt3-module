@@ -1,4 +1,5 @@
 import { defineNuxtModule, createResolver, addComponent, installModule } from '@nuxt/kit'
+import { join } from 'path'
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {}
@@ -10,24 +11,24 @@ export default defineNuxtModule<ModuleOptions>({
   },
   // Default configuration options of the Nuxt module
   defaults: {},
-  async setup (options, nuxt) {
+  setup (options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
-    await installModule("@element-plus/nuxt")
+    installModule("@element-plus/nuxt", options, nuxt)
 
     addComponent({
       name: 'SparcLogo',
-      filePath: resolver.resolve('./components/SparcLogo.vue'),
+      filePath: resolver.resolve('../src/components/SparcLogo.vue'),
       global: true,
       mode: 'client'
     })
     addComponent({
       name: 'SparcTooltip',
-      filePath: resolver.resolve('./components/SparcTooltip.vue'),
+      filePath: resolver.resolve('../src/components/SparcTooltip.vue'),
       global: true,
       mode: 'client'
     })
 
-    nuxt.options.css.push(resolver.resolve('assets/styles.scss'));
+    nuxt.options.css.push(resolver.resolve('../src/assets/styles.scss'));
   }
 })
