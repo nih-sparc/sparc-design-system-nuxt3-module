@@ -1,6 +1,6 @@
 {
   "name": "sparc-design-system-nuxt3-module",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "description": "The design system used by SPARC",
   "repository": "nih-sparc/sparc-design-system-nuxt3-module",
   "license": "MIT",
@@ -9,16 +9,15 @@
     ".": {
       "types": "./dist/types.d.ts",
       "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs",
-      "components": "./src/components",
-      "assets": "./src/assets"
+      "require": "./dist/module.cjs"
     }
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
   "files": [
     "dist",
-    "src"
+    "src",
+    "src/assets/*"
   ],
   "scripts": {
     "prepack": "npm run build && nuxt-module-build build",
