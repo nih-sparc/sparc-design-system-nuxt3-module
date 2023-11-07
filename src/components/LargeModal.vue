@@ -1,7 +1,7 @@
 <template>
     <el-dialog 
       :modelValue="visible"
-      :show-close="false"
+      :show-close="true"
       class="sparc-design-system-large-modal-dialog"
       @close="closeDialog"
     >
@@ -70,7 +70,7 @@
       }
   
       .el-dialog__header {
-        display: none;
+        padding: 0 !important;
       }
   }
   </style>
