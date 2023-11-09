@@ -2,6 +2,30 @@
   <div>
     Nuxt module playground!
   </div>
+  <div>
+  <sparc-radio
+  v-model="radioVal"
+  label="1"
+  :disabled="false"
+  display="Option 1"
+/>
+<sparc-radio
+  v-model="radioVal"
+  label="2"
+  :disabled="false"
+  display="Option 2"
+/>
+</div>
+<div>
+  <sparc-radio
+  v-for="r in radios"
+  v-bind:key="r.label"
+  v-model="radioVal2"
+  :label="r.label"
+  :disabled="r.disabled"
+  :display="r.display"
+/>
+</div>
     <div>
   <large-modal
     :visible="dialogVisibleLarge"
@@ -43,7 +67,7 @@
   </el-button>
 
   <el-button class="custom">Test Button</el-button>
-  <div class="container">
+  <div class="logo-container">
     <sparc-logo />
   </div>
   <div class="tooltip">
@@ -142,6 +166,7 @@
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "./utils/notificationMessages.js"
   import LargeModal from '../src/components/LargeModal.vue'
+
 
   const tableData = [{
     "id": 37,
@@ -397,9 +422,31 @@
         ]);
         const dialogVisible = ref(false);
         const dialogVisibleLarge = ref(false);
+        const radioVal=ref("1");
+        const radioVal2 = ref(5);
+        const radios = ref([
+      {
+        label: 4,
+        display: "Option 1",
+        disabled: false
+      },
+      {
+        label: 5,
+        display: "Option 2",
+        disabled: false
+      },
+      {
+        label: 6,
+        display: "Option 3",
+        disabled: true
+      }
+    ]);
         return {
             dialogVisible,
-            dialogVisibleLarge
+            dialogVisibleLarge,
+            radioVal,
+            radioVal2,
+            radios
         };
     },
     methods: {
@@ -427,7 +474,9 @@
 </script>
 
 <style scoped lang="scss">
-
+.logo-container{
+  width:100px;
+}
 .tooltip {
   display: flex;
   align-content: space-around;

@@ -1,5 +1,6 @@
 import { defineNuxtModule, createResolver, addComponent, installModule } from '@nuxt/kit'
 import { join } from 'path'
+import { client } from 'process'
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {}
@@ -28,7 +29,12 @@ export default defineNuxtModule<ModuleOptions>({
       global: true,
       mode: 'client'
     })
-
+    addComponent({
+      name: 'SparcRadio',
+      filePath: resolver.resolve('../src/components/SparcRadio.vue'),
+      global:true,
+      mode:'client'
+    })
     nuxt.options.css.push(resolver.resolve('../src/assets/styles.scss'));
   }
 })
