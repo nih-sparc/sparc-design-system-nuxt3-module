@@ -2,6 +2,46 @@
   <div>
     Nuxt module playground!
   </div>
+    <div>
+  <large-modal
+    :visible="dialogVisibleLarge"
+    @close-download-dialog="dialogVisibleLarge = false"
+  >
+    <template class="content" #optionalContent>
+      <h1>Direct download</h1>
+      <div>
+        <p>You can download the raw files and metadata directly to your computer as a zip archive free of charge.</p>
+        <p class="download-container__download-dataset-size">
+          Dataset Size: 17.43 GB
+        </p>
+        <el-button class="download-button">Download</el-button>
+      </div>
+    </template>
+    <template class="content" #mainContent>
+      <h1>Download from AWS</h1>
+      <p>
+        Raw files and metadata are stored in an AWS S3 Requester Pays bucket.
+        You can learn more about downloading data from AWS on our
+        <a href="/#" target="_blank">Help Page</a>.
+      </p>
+      <div>
+        <p>*Requester pays means that any costs associated with downloading the data will be charged to your AWS account.
+          For transfer pricing information, visit the <a href="https://aws.amazon.com/s3/pricing/" target="blank">AWS Pricing documentation.</a>
+        </p>
+        <div>
+        <el-button class="secondary" @click="dialogVisibleLarge = false">
+          Close
+        </el-button>
+        </div>
+      </div>
+    </template>
+  </large-modal>
+  <el-button
+    plain
+    @click="dialogVisibleLarge = true">
+    Open Large Modal
+  </el-button>
+
   <el-button class="custom">Test Button</el-button>
   <div class="container">
     <sparc-logo />
@@ -95,11 +135,13 @@
       </el-button>
     </template>
   </el-dialog>
+</div>
 </template>
 
 <script>
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "./utils/notificationMessages.js"
+  import LargeModal from '../src/components/LargeModal.vue'
 
   const tableData = [{
     "id": 37,
@@ -339,49 +381,49 @@
   export default {
     name: 'App',
     setup() {
-      const tooltipDirs = ref([
-        'top-left',
-        'top-center',
-        'top-right',
-        'left-top',
-        'left-center',
-        'left-bottom',
-        'bottom-left',
-        'bottom-center',
-        'bottom-right',
-        'right-top',
-        'right-center',
-        'right-bottom'
-      ])
-      const dialogVisible = ref(false)
-
-      return {
-        dialogVisible,
-        tableData,
-        tooltipDirs
-      }
+        const tooltipDirs = ref([
+            'top-left',
+            'top-center',
+            'top-right',
+            'left-top',
+            'left-center',
+            'left-bottom',
+            'bottom-left',
+            'bottom-center',
+            'bottom-right',
+            'right-top',
+            'right-center',
+            'right-bottom'
+        ]);
+        const dialogVisible = ref(false);
+        const dialogVisibleLarge = ref(false);
+        return {
+            dialogVisible,
+            dialogVisibleLarge
+        };
     },
     methods: {
-      openSuccessMessage() {
-        successMessage(`Success!`)
-      },
-      openFailMessage() {
-        failMessage(`Failure.`)
-      },
-      openInfoMessage() {
-        infoMessage(`Information`)
-      },
-      openNotification() {
-        informationNotification('Notification Title', 'This is a notification.')
-      },
-      openNotificationWithIcon() {
-        iconInformationNotification('Notification Title', 'This is a notification with an icon.')
-      },
-      openDialog() {
-        this.dialogVisible = true
-      }
-    }
-  }
+        openSuccessMessage() {
+            successMessage(`Success!`);
+        },
+        openFailMessage() {
+            failMessage(`Failure.`);
+        },
+        openInfoMessage() {
+            infoMessage(`Information`);
+        },
+        openNotification() {
+            informationNotification('Notification Title', 'This is a notification.');
+        },
+        openNotificationWithIcon() {
+            iconInformationNotification('Notification Title', 'This is a notification with an icon.');
+        },
+        openDialog() {
+            this.dialogVisible = true;
+        }
+    },
+    components: { LargeModal }
+}
 </script>
 
 <style scoped lang="scss">
