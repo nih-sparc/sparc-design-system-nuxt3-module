@@ -3,6 +3,30 @@
     Nuxt module playground!
   </div>
   <div>
+    <sparc-checkbox
+      v-for="item in checkboxItem"
+      v-bind:key="item.label"
+      v-model="checkboxVal2"
+      :label="item.label"
+      :disabled="item.disabled"
+      :display="item.display"
+    />
+  </div>
+  <div>
+    <sparc-checkbox
+      v-model="checkboxVal"
+      label="1"
+      :disabled="true"
+      display="Option 1"
+    />
+    <sparc-checkbox
+      v-model="checkboxVal"
+      label="2"
+      :disabled="false"
+      display="Option 2"
+    />
+  </div>
+  <div>
   <sparc-radio
   v-model="radioVal"
   label="1"
@@ -165,9 +189,42 @@
 <script>
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "./utils/notificationMessages.js"
-  import LargeModal from '../src/components/LargeModal.vue'
 
 
+  const checkboxItem = ref([
+      {
+        label: 1,
+        display: "Option 1",
+        disabled: false
+      },
+      {
+        label: 2,
+        display: "Option 2",
+        disabled: false
+      },
+      {
+        label: 3,
+        display: "Option 3",
+        disabled: false
+      }
+    ]);
+    const radios = ref([
+      {
+        label: 4,
+        display: "Option 1",
+        disabled: false
+      },
+      {
+        label: 5,
+        display: "Option 2",
+        disabled: false
+      },
+      {
+        label: 6,
+        display: "Option 3",
+        disabled: true
+      }
+    ]);
   const tableData = [{
     "id": 37,
     "sourceDatasetId": 344,
@@ -422,31 +479,21 @@
         ]);
         const dialogVisible = ref(false);
         const dialogVisibleLarge = ref(false);
+        const checkboxVal = ref(["1"]);
+        checkboxVal.value.push("2");
+        const checkboxVal2 = ref([]);
         const radioVal=ref("1");
         const radioVal2 = ref(5);
-        const radios = ref([
-      {
-        label: 4,
-        display: "Option 1",
-        disabled: false
-      },
-      {
-        label: 5,
-        display: "Option 2",
-        disabled: false
-      },
-      {
-        label: 6,
-        display: "Option 3",
-        disabled: true
-      }
-    ]);
+
         return {
+            checkboxVal,
+            checkboxVal2,
             dialogVisible,
             dialogVisibleLarge,
             radioVal,
             radioVal2,
-            radios
+            radios,
+            checkboxItem
         };
     },
     methods: {
@@ -469,7 +516,15 @@
             this.dialogVisible = true;
         }
     },
-    components: { LargeModal }
+    watch:{
+      checkboxVal:{
+        handler(val, old){
+          console.log(val,old)
+        },
+        deep:true
+      }
+    }
+    
 }
 </script>
 

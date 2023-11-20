@@ -30,8 +30,20 @@ export default defineNuxtModule<ModuleOptions>({
       mode: 'client'
     })
     addComponent({
+      name: 'LargeModal',
+      filePath: resolver.resolve('../src/components/LargeModal.vue'),
+      global:true,
+      mode:'client'
+    })
+    addComponent({
       name: 'SparcRadio',
       filePath: resolver.resolve('../src/components/SparcRadio.vue'),
+      global:true,
+      mode:'client'
+    })
+    addComponent({
+      name:'SparcCheckbox',
+      filePath: resolver.resolve('../src/components/SparcCheckbox.vue'),
       global:true,
       mode:'client'
     })
